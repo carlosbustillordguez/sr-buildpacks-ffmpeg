@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+set -eo pipefail
+
+# No requirement needed...
+
+exit 0
