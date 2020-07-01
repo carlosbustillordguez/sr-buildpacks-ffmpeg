@@ -30,4 +30,6 @@ mkdir -p $(dirname $PROFILE_PATH)
 echo "export PATH=\"\$PATH:$FFMPEG_LAYER/ffmpeg-3.4.2-64bit-static\"" > $PROFILE_PATH
 echo "export FOO=\"foo\"" >> $PROFILE_PATH
 
+ln -s "${FFMPEG_LAYER}/ffmpeg-3.4.2-64bit-static" "${FFMPEG_LAYER}/bin"
+
 echo "---> Done"
