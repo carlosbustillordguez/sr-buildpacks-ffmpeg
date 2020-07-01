@@ -15,19 +15,10 @@ echo "launch = true" > $FFMPEG_LAYER.toml
 echo "build = true" >> $FFMPEG_LAYER.toml
 
 # ffmpeg URL
-FFMPEG_URL="https://s3-us-west-1.amazonaws.com/kitcast/cdn/ffmpeg-release-64bit-static.tar.xz"
+FFMPEG_URL="https://s3.us-east-2.amazonaws.com/speedyrails-public/cnb/ffmpeg-3.4.2-64bit-static.tar.xz"
 
 # Download ffmpeg to FFMPEG_LAYER
 echo "---> Dowloading ffmpeg from $FFMPEG_URL"
 curl -L --silent --fail --retry 5 --retry-delay 1 --connect-timeout 3 --max-time 30 $FFMPEG_URL | tar -Jx -C $FFMPEG_LAYER
-
-# mv ${FFMPEG_LAYER}/ffmpeg-3.4.2-64bit-static ${FFMPEG_LAYER}/bin
-
-# Add ffmpeg to the PATH
-echo "---> Adding the ffmpeg to the PATH variable"
-PROFILE_PATH="${FFMPEG_LAYER}/profile.d/ffmpeg.sh"
-mkdir -p $(dirname $PROFILE_PATH)
-echo "export PATH=\"\$PATH:$FFMPEG_LAYER/ffmpeg-3.4.2-64bit-static\"" > $PROFILE_PATH
-echo "export FOO=\"foo\"" >> $PROFILE_PATH
 
 echo "---> Done"
